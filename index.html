@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabji Suggester - Vegetable to Recipe Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🥬 Sabji Suggester</h1>
+            <p>Upload vegetable images and get the best sabji recipes!</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p>Drag and drop your vegetable image here</p>
+                    <p class="upload-hint">or click to select a file</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing your vegetable...</p>
+            </div>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <div class="results-container">
+                    <div class="image-preview">
+                        <img id="previewImage" alt="Preview">
+                    </div>
+
+                    <div class="results-content">
+                        <div class="vegetable-info">
+                            <h2>Detected Vegetable</h2>
+                            <div class="vegetable-name" id="vegetableName"></div>
+                            <p class="confidence" id="confidence"></p>
+                        </div>
+
+                        <div class="sabji-suggestions">
+                            <h2>Best Sabji Recipes</h2>
+                            <div id="sabjiList" class="sabji-list"></div>
+                        </div>
+
+                        <button id="resetBtn" class="reset-button">Try Another Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for vegetable lovers | Powered by TensorFlow.js & ML5.js</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.0/dist/ml5.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
